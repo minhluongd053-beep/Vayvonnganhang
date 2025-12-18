@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CTTNHH DV Tư Vấn Ngọc Mai | Tư vấn vay vốn minh bạch</title>
+
+  <!-- FONT GEN Z NHƯNG NGHIÊM TÚC -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --dark:#0f172a;
+      --deep:#020617;
+      --primary:#7c3aed;
+      --secondary:#22d3ee;
+      --accent:#facc15;
+      --soft:#f1f5f9;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#64748b;
+      --border:rgba(15,23,42,0.08);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      font-family:'Inter',system-ui,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 20% 10%, #ede9fe, transparent 40%),
+        radial-gradient(circle at 80% 30%, #cffafe, transparent 45%),
+        linear-gradient(180deg,#f8fafc,#ffffff);
+    }
+
+    /* ================= HERO ================= */
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      overflow:hidden;
+      background:linear-gradient(135deg,#020617,#0f172a 60%,#1e1b4b);
+      color:#fff;
+    }
+
+    .hero::before,
+    .hero::after{
+      content:"";
+      position:absolute;
+      width:520px;
+      height:520px;
+      border-radius:50%;
+      filter:blur(90px);
+      opacity:.55;
+      animation:float 18s linear infinite;
+    }
+
+    .hero::before{
+      background:#7c3aed;
+      top:-160px;left:-120px;
+    }
+    .hero::after{
+      background:#22d3ee;
+      bottom:-180px;right:-140px;
+      animation-duration:25s;
+    }
+
+    @keyframes float{
+      0%{transform:translateY(0)}
+      50%{transform:translateY(-120px)}
+      100%{transform:translateY(0)}
+    }
+
+    .hero-box{
+      position:relative;
+      z-index:2;
+      max-width:980px;
+      padding:3.5rem 2rem;
+      text-align:center;
+      animation:heroIn 1.2s ease both;
+    }
+
+    @keyframes heroIn{
+      from{opacity:0;transform:translateY(40px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+
+    .hero-badge{
+      display:inline-block;
+      padding:.6rem 1.4rem;
+      border-radius:999px;
+      background:rgba(255,255,255,.12);
+      backdrop-filter:blur(8px);
+      font-weight:600;
+      letter-spacing:.2px;
+      margin-bottom:1.2rem;
+    }
+
+    .hero h1{
+      font-size:clamp(2.6rem,5vw,4.2rem);
+      line-height:1.05;
+      margin:.8rem 0 1rem;
+      font-weight:900;
+    }
+
+    .hero h1 span{
+      display:block;
+      font-size:1.4rem;
+      font-weight:600;
+      opacity:.85;
+    }
+
+    .hero em{
+      font-style:normal;
+      background:linear-gradient(90deg,var(--accent),#fde68a);
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+
+    .hero p{
+      max-width:720px;
+      margin:1.4rem auto 2.6rem;
+      font-size:1.05rem;
+      line-height:1.7;
+      color:#e5e7eb;
+    }
+
+    .hero-staff{
+      margin-bottom:1.6rem;
+      font-size:.95rem;
+      opacity:.9;
+    }
+    .hero-staff strong{color:var(--accent)}
+
+    .hero-actions{
+      display:flex;
+      justify-content:center;
+      gap:1rem;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:1rem 1.8rem;
+      border-radius:16px;
+      font-weight:800;
+      text-decoration:none;
+      transition:.25s ease;
+      display:inline-block;
+    }
+
+    .btn.primary{
+      background:linear-gradient(135deg,var(--accent),#fde68a);
+      color:#1e293b;
+    }
+
+    .btn.ghost{
+      border:1px solid rgba(255,255,255,.6);
+      color:#fff;
+    }
+
+    .btn:hover{transform:translateY(-3px)}
+
+    /* ================= LAYOUT ================= */
+    section{padding:5.5rem 1.5rem}
+    .container{max-width:1200px;margin:auto}
+
+    .section-title{
+      display:inline-flex;
+      align-items:center;
+      gap:.9rem;
+      padding:.9rem 1.6rem;
+      border-radius:18px;
+      background:linear-gradient(135deg,#eef2ff,#ffffff);
+      border:1px solid var(--border);
+      box-shadow:0 18px 45px rgba(0,0,0,.06);
+      font-size:1.5rem;
+      font-weight:900;
+      color:#4c1d95;
+      margin-bottom:3rem;
+      animation:titleIn .8s ease both;
+    }
+
+    @keyframes titleIn{
+      from{opacity:0;transform:translateY(25px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+
+    .section-title span{
+      width:42px;height:42px;
+      border-radius:14px;
+      background:linear-gradient(135deg,var(--primary),#a78bfa);
+      color:#fff;
+      display:flex;align-items:center;justify-content:center;
+      font-weight:900;
+      box-shadow:0 10px 25px rgba(124,58,237,.45);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:2.2rem;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:22px;
+      padding:2.4rem;
+      box-shadow:0 18px 40px rgba(0,0,0,.06);
+      transition:.35s ease;
+      position:relative;
+      overflow:hidden;
+      cursor:pointer;
+    }
+
+    .card::after{
+      content:"";
+      position:absolute;
+      inset:auto -40% -40% auto;
+      width:200%;height:200%;
+      background:radial-gradient(circle,var(--secondary),transparent 60%);
+      opacity:0;
+      transition:.35s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-10px) scale(1.01);
+      box-shadow:0 30px 70px rgba(0,0,0,.12);
+    }
+
+    .card:hover::after{opacity:.12}
+
+    .card h3{
+      margin-top:0;
+      font-size:1.4rem;
+      color:#4c1d95;
+    }
+
+    .card p,.card li{color:var(--muted);line-height:1.7}
+
+    .badge{
+      display:inline-block;
+      padding:.35rem .9rem;
+      border-radius:999px;
+      font-size:.75rem;
+      font-weight:700;
+      background:#ede9fe;
+      color:#4c1d95;
+      margin-bottom:.8rem;
+    }
+
+    /* STAFF */
+    .staff{display:flex;gap:1.6rem;align-items:center}
+
+    .avatar{
+      width:78px;height:78px;
+      border-radius:50%;
+      overflow:hidden;
+      box-shadow:0 12px 30px rgba(0,0,0,.25);
+      flex-shrink:0;
+    }
+
+    .avatar img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .highlight{
+      border:2px solid #7c3aed;
+      background:linear-gradient(180deg,#ffffff,#f5f3ff);
+    }
+
+    /* CONTACT */
+    .contact{background:#f8fafc;border-top:1px solid var(--border)}
+
+    footer{
+      padding:3.5rem 1.5rem;
+      text-align:center;
+      font-size:.9rem;
+      color:#64748b;
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="hero-box">
+    <div class="hero-badge">Tư vấn tài chính chính thống · Làm ăn minh bạch</div>
+    <div class="hero-staff">Phụ trách chính: <strong>Thạch Ngọc Mai</strong> · CTTNHH DV Tư Vấn Ngọc Mai</div>
+
+    <h1>
+      <span>Trung tâm</span>
+      <em>Tư vấn & Hỗ trợ</em>
+      Vay vốn ngân hàng
+    </h1>
+
+    <p>
+      Kết nối khách hàng với hệ thống ngân hàng hợp pháp, tư vấn dựa trên hồ sơ thực tế,
+      không mập mờ – không lách luật – không phí ẩn.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#lienhe" class="btn primary">Liên hệ tư vấn trực tiếp</a>
+      <a href="#nhanvien" class="btn ghost">Gặp nhân viên phụ trách</a>
+    </div>
+  </div>
+</header>
+
+<!-- ================= GIỚI THIỆU ================= -->
+<section>
+  <div class="container">
+    <div class="section-title"><span>Ⅰ</span>Giới thiệu</div>
+    <div class="grid">
+      <div class="card">
+        <span class="badge">Sứ mệnh</span>
+        <h3>Đúng – đủ – rõ ràng</h3>
+        <p>Tư vấn vay vốn cá nhân & doanh nghiệp dựa trên khả năng thực tế, không vẽ vời hạn mức.</p>
+      </div>
+      <div class="card">
+        <span class="badge">Nguyên tắc</span>
+        <h3>Minh bạch & an toàn</h3>
+        <p>Không giữ giấy tờ gốc, không thu phí trước, không cam kết trái quy định ngân hàng.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LIÊN HỆ ================= -->
+<section id="lienhe" class="contact">
+  <div class="container">
+    <div class="section-title"><span>☎</span>Liên hệ tư vấn</div>
+    <div class="grid">
+      <div class="card">
+        <span class="badge">Liên hệ trực tiếp</span>
+        <h3>CTTNHH Dịch vụ Tư vấn Ngọc Mai</h3>
+        <p><strong>Người phụ trách:</strong> Thạch Ngọc Mai</p>
+        <p>📞 <strong>Hotline:</strong> 0353 521 496</p>
+        <p>☎️ <strong>Điện thoại DN:</strong> 0867 876 896</p>
+        <p>📍 <strong>Địa chỉ:</strong> Số 2/374, KP Hòa Lân 1, P. Thuận Giao, TP. Thuận An, Bình Dương</p>
+        <p style="margin-top:1rem;color:#475569">
+          Do tính chất tư vấn tài chính, mọi hồ sơ sẽ được trao đổi <strong>trực tiếp</strong> để đảm bảo minh bạch,
+          đúng quy định pháp luật và bảo mật thông tin khách hàng.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NHÂN VIÊN ================= -->
+<section id="nhanvien">
+  <div class="container">
+    <div class="section-title"><span>Ⅱ</span>Nhân viên phụ trách</div>
+    <div class="grid">
+      <div class="card staff highlight">
+        <div class="avatar">
+          <img src="./Pictures/Image/ngoc-mai.jpg.jpg" alt="Ảnh đại diện Thạch Ngọc Mai">
+        </div>
+        <div>
+          <span class="badge">Phụ trách chính</span>
+          <h3>Thạch Ngọc Mai</h3>
+          <p>Giám đốc – Chuyên viên tư vấn tài chính<br>CTTNHH Dịch vụ Tư vấn Ngọc Mai</p>
+          <p>📞 SĐT công tác: <strong>0353 521 496</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PHÁP LÝ DOANH NGHIỆP ================= -->
+<section>
+  <div class="container">
+    <div class="section-title"><span>Ⅲ</span>Pháp lý & Thông tin doanh nghiệp</div>
+    <div class="grid">
+      <div class="card">
+        <span class="badge">Thông tin đăng ký</span>
+        <h3>CTTNHH Dịch vụ Tư vấn Ngọc Mai</h3>
+        <ul>
+          <li><strong>Mã số thuế:</strong> 3703160193</li>
+          <li><strong>Người đại diện:</strong> Thạch Ngọc Mai</li>
+          <li><strong>Ngày hoạt động:</strong> 09/10/2023</li>
+          <li><strong>Tình trạng:</strong> Đang hoạt động</li>
+          <li><strong>Loại hình DN:</strong> Công ty TNHH ngoài NN</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <span class="badge">Địa chỉ & quản lý</span>
+        <ul>
+          <li><strong>Địa chỉ:</strong> Số 2/374, KP Hòa Lân 1, P. Thuận Giao, TP Thuận An, Bình Dương</li>
+          <li><strong>Địa chỉ thuế:</strong> Số 2/374, KP Hòa Lân 1, P. Thuận Giao, TP.HCM</li>
+          <li><strong>Quản lý bởi:</strong> Thuế cơ sở 27 – TP.HCM</li>
+          <li><strong>Điện thoại DN:</strong> 0867 876 896</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <span class="badge">Ngành nghề hoạt động</span>
+        <ul>
+          <li>6619 – Hoạt động hỗ trợ dịch vụ tài chính (tư vấn đầu tư)</li>
+          <li>4610 – Đại lý, môi giới, đấu giá</li>
+          <li>7020 – Hoạt động tư vấn quản lý</li>
+          <li>7310 – Quảng cáo</li>
+          <li>7830 – Cung ứng & quản lý nguồn lao động</li>
+          <li>8299 – Dịch vụ hỗ trợ kinh doanh khác</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ĐỐI TÁC & LIÊN KẾT ================= -->
+<section>
+  <div class="container">
+    <div class="section-title"><span>Ⅳ</span>Đối tác & hình thức liên kết</div>
+    <div class="grid">
+      <div class="card">
+        <span class="badge">Nguyên tắc công bố</span>
+        <h3>Không công khai trên website</h3>
+        <p>
+          Doanh nghiệp có liên kết làm việc với nhiều ngân hàng và tổ chức tín dụng hợp pháp.
+          Tuy nhiên, thông tin cụ thể <strong>không được công bố trực tuyến</strong>.
+        </p>
+        <p>
+          Việc trao đổi chi tiết chỉ được thực hiện <strong>khi gặp trực tiếp và tư vấn dựa trên hồ sơ thực tế</strong>,
+          nhằm đảm bảo đúng quy định pháp luật và quyền lợi khách hàng.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PHÁP LÝ & DOANH NGHIỆP ================= -->
+<section>
+  <div class="container">
+    <div class="section-title"><span>Ⅲ</span>Thông tin pháp lý & đối tác</div>
+    <div class="grid">
+      <div class="card">
+        <span class="badge">Pháp lý doanh nghiệp</span>
+        <h3>CTTNHH Dịch vụ Tư vấn Ngọc Mai</h3>
+        <ul>
+          <li><strong>Mã số thuế:</strong> 3703160193</li>
+          <li><strong>Người đại diện:</strong> Thạch Ngọc Mai</li>
+          <li><strong>Tình trạng:</strong> Đang hoạt động (từ 09/10/2023)</li>
+          <li><strong>Loại hình:</strong> Công ty TNHH ngoài NN</li>
+          <li><strong>Quản lý thuế:</strong> Thuế cơ sở 27 – TP.HCM</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="badge">Địa chỉ & liên hệ</span>
+        <ul>
+          <li><strong>Địa chỉ trụ sở:</strong> Số 2/374, KP Hòa Lân 1, P. Thuận Giao, TP. Thuận An, Bình Dương</li>
+          <li><strong>Địa chỉ thuế:</strong> Số 2/374, KP Hòa Lân 1, P. Thuận Giao, TP.HCM</li>
+          <li><strong>Điện thoại:</strong> 0867 876 896</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="badge">Ngành nghề hoạt động</span>
+        <ul>
+          <li>6619 – Hỗ trợ dịch vụ tài chính (tư vấn đầu tư)</li>
+          <li>7020 – Tư vấn quản lý</li>
+          <li>4610 – Đại lý, môi giới</li>
+          <li>7310 – Quảng cáo</li>
+          <li>7830 – Cung ứng & quản lý nguồn lao động</li>
+          <li>8299 – Dịch vụ hỗ trợ kinh doanh khác</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="badge">Đối tác tài chính</span>
+        <h3>Nguyên tắc hợp tác</h3>
+        <p>
+          Công ty có hợp tác với <strong>nhiều ngân hàng và tổ chức tín dụng hợp pháp</strong>.
+          Tuy nhiên, để đảm bảo đúng quy định và bảo mật thông tin,
+          <strong>chúng tôi không công bố danh sách ngân hàng liên kết trên website</strong>.
+        </p>
+        <p>
+          Thông tin đối tác chỉ được trao đổi <strong>khi gặp trực tiếp và tư vấn dựa trên hồ sơ thực tế</strong>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  © 2025 – CTTNHH Dịch vụ Tư vấn Ngọc Mai · Thiết kế Gen Z nhưng làm việc rất nghiêm túc.
+</footer>
+
+</body>
+</html>
